@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Currency Converter</title>
+    <script type="text/javascript" src="./js/bundle.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1>Currency Converter</h1>
+      <form id="from-euro-currency-converter"v-on:submit.prevent="convertFromEuro">
+        <label for="euros">Euros:</label>
+        <input type="number" name="" v-model.number="euroValue">
+        <select v-model="selectedToCurrency">
+          <option v-for="(value, currency) in currencyData" v-bind:value="value">{{currency}}</option>
+        </select>
+        <input type="submit" value="convert">
+
+      </form>
+
+      <div id="from-euro-result">
+        <p>result: {{currencyResult}}</p>
+      </div>
+
+      <form id="to-euro-currency-converter" v-on:submit.prevent="convertToEuro">
+        <label for="currency">Select currency</label>
+        <select v-model="selectedFromCurrency">
+          <option v-for="(value, currency) in currencyData" v-bind:value="value">{{currency}}</option>
+        <label for="amount">Amount:</label>
+        <input type="number" name="" v-model.number="currencyValue">
+        <input type="submit" value="convert to euros">
+      </form>
+
+      <div id="to-euros-result">
+        <p>Euros: {{ euroResult }}</p>
+      </div>
+
+
+
+    </div>
+
+  </body>
+</html>
