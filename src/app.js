@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
       currencyResult: null,
       selectedFromCurrency: null,
       currencyValue: null,
-      euroResult: null
+      euroResult: null,
+      firstCurrency: null,
+      firstCurrencyValue: null,
+      secondCurrency: null,
+      secondCurrencyResult: null
 
     },
     mounted() {
@@ -32,6 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       convertToEuro: function () {
         this.euroResult = (this.currencyValue / this.selectedFromCurrency).toFixed(2);
+      },
+
+      convertSelectedCurrencies: function () {
+        this.secondCurrencyResult = ((this.firstCurrencyValue/ this.firstCurrency) * this.secondCurrency).toFixed(2);
       }
 
       }

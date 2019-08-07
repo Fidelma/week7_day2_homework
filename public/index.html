@@ -36,6 +36,23 @@
         <p>Euros: {{ euroResult }}</p>
       </div>
 
+      <form id="other-currency-converter" v-on:submit.prevent="convertSelectedCurrencies">
+        <label for="currency">Select currency</label>
+        <select v-model="firstCurrency">
+          <option v-for="(value, currency) in currencyData" v-bind:value="value">{{currency}}</option>
+        <label for="amount">Amount:</label>
+        <input type="number" name="" v-model.number="firstCurrencyValue">
+        <label for="currency">Select currency to convert to</label>
+        <select v-model="secondCurrency">
+          <option v-for="(value, currency) in currencyData" v-bind:value="value">{{currency}}</option>
+        <input type="submit" value="convert">
+      </form>
+
+      <div id="other-currency-results">
+        <p>Result: {{secondCurrencyResult}}</p>
+
+      </div>
+
 
 
     </div>
